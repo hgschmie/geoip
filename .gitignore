@@ -1,0 +1,8 @@
+.classpath
+.settings
+.project
+target
+src/main/resources/Geo*.dat
+.externalToolBuilders
+temp-testng-customsuite.xml
+test-output

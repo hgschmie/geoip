@@ -1,0 +1,10 @@
+This is a mavenified version of the MaxMind GeoIP Java API available from http://sourceforge.net/projects/geoip/
+
+It is distributed under LGPL V 2.1 (like the original code).
+
+This is not maintained. I needed a mavenified version of the GeoIP code and wanted to fix the worst bugs in the API. 
+
+
+Changes:
+
+
