@@ -12,12 +12,12 @@
     Java API for the Maxmind GeoIP Service
   </description>
 
-  <!--  <scm>
-       <connection>scm:git:git://scm@source.ninginc.com/ning-libs-fsp.git</connection>
-       <developerConnection>scm:git:git://scm@source.ninginc.com/ning-libs-fsp.git</developerConnection>
-       <url>http://git.source.ninginc.com/ning-libs-fsp.git</url>
-       </scm>
-  -->
+  <scm>
+    <connection>scm:git:git://git@github.com/hgschmie/GeoIP.git</connection>
+    <developerConnection>scm:git:git://git@github.com/hgschmie/GeoIP.git</developerConnection>
+    <url>http://github.com/hgschmie/GeoIP</url>
+  </scm>
+       
   <dependencies>
     <dependency>
       <groupId>org.testng</groupId>
