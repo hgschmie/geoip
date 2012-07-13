@@ -5,14 +5,15 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 @Test(groups = "require-purchase")
-public class OrgLookupTest {
+public class OrgLookupTest
+{
 
     public static final String GEO_ORG_FILE = "src/main/resources/GeoIPOrg.dat";
     public static final String GEO_ISP_FILE = "src/main/resources/GeoIPISP.dat";
 
     public void testOrganization() throws Exception
     {
-        LookupService cl = new LookupService(GEO_ORG_FILE, LookupService.GEOIP_MEMORY_CACHE );
+        LookupService cl = new LookupService(GEO_ORG_FILE, LookupService.GEOIP_MEMORY_CACHE);
 
         String org1 = cl.getOrg("151.38.39.114");
         String org2 = cl.getOrg("12.25.205.51");
@@ -29,7 +30,7 @@ public class OrgLookupTest {
 
     public void testISP() throws Exception
     {
-        LookupService cl = new LookupService(GEO_ISP_FILE, LookupService.GEOIP_MEMORY_CACHE );
+        LookupService cl = new LookupService(GEO_ISP_FILE, LookupService.GEOIP_MEMORY_CACHE);
 
         String isp1 = cl.getOrg("151.38.39.114");
         String isp2 = cl.getOrg("12.25.205.51");

@@ -20,7 +20,11 @@
 
 package com.maxmind.geoip;
 
-public class Location {
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
+@SuppressFBWarnings("URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD")
+public class Location
+{
     public String countryCode;
     public String countryName;
     public String region;
@@ -36,7 +40,8 @@ public class Location {
     private final static double PI = 3.14159265;
     private final static double RAD_CONVERT = PI / 180;
 
-    public double distance (Location loc) {
+    public double distance(Location loc)
+    {
         double delta_lat, delta_lon;
         double temp;
 
@@ -54,7 +59,7 @@ public class Location {
         delta_lon = (lon2 - lon1) * RAD_CONVERT;
 
         // Find the great circle distance
-        temp = Math.pow(Math.sin(delta_lat/2),2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(delta_lon/2),2);
-        return EARTH_DIAMETER * Math.atan2(Math.sqrt(temp),Math.sqrt(1-temp));
+        temp = Math.pow(Math.sin(delta_lat / 2), 2) + Math.cos(lat1) * Math.cos(lat2) * Math.pow(Math.sin(delta_lon / 2), 2);
+        return EARTH_DIAMETER * Math.atan2(Math.sqrt(temp), Math.sqrt(1 - temp));
     }
 }

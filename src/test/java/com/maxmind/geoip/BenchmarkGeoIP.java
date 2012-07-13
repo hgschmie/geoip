@@ -6,24 +6,29 @@ import static org.testng.Assert.assertNull;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+
 @Test(groups = "benchmark")
-public class BenchmarkGeoIP {
+public class BenchmarkGeoIP
+{
 
     public static final String GEOIP_FILE = "src/main/resources/GeoIP.dat";
 
-    public static final String ipstring[] = { "24.24.24.24", "80.24.24.80",
-            "200.24.24.40", "68.24.24.46" };
+    private static final String ipstring[] = { "24.24.24.24", "80.24.24.80",
+                    "200.24.24.40", "68.24.24.46" };
 
     private LookupService cl = null;
     private String type = null;
 
     @AfterMethod(alwaysRun = true)
-    public void tearDown() {
+    public void tearDown()
+    {
         cl = null;
         type = null;
     }
 
-    public void benchmarkMemory() throws Exception {
+    public void benchmarkMemory() throws Exception
+    {
         assertNull(cl);
         cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_MEMORY_CACHE);
         type = "GEOIP_MEMORY_CACHE";
@@ -34,7 +39,8 @@ public class BenchmarkGeoIP {
         testGeoipCity(15000);
     }
 
-    public void benchmarkStandard() throws Exception {
+    public void benchmarkStandard() throws Exception
+    {
         assertNull(cl);
         cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_STANDARD);
         type = "STANDARD";
@@ -45,7 +51,8 @@ public class BenchmarkGeoIP {
         testGeoipCity(1500);
     }
 
-    public void benchmarkCheckCache() throws Exception {
+    public void benchmarkCheckCache() throws Exception
+    {
         assertNull(cl);
         cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_CHECK_CACHE);
         type = "GEOIP_CHECK_CACHE";
@@ -55,7 +62,8 @@ public class BenchmarkGeoIP {
         testGeoipCity(1500);
     }
 
-    public void benchmarkCheckCacheMemory() throws Exception {
+    public void benchmarkCheckCacheMemory() throws Exception
+    {
         assertNull(cl);
         cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_CHECK_CACHE
                 | LookupService.GEOIP_MEMORY_CACHE);
@@ -66,7 +74,8 @@ public class BenchmarkGeoIP {
         testGeoipCity(15000);
     }
 
-    public void benchmarkIndexCache() throws Exception {
+    public void benchmarkIndexCache() throws Exception
+    {
         assertNull(cl);
         cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_INDEX_CACHE);
         type = "GEOIP_INDEX_CACHE";
@@ -76,7 +85,9 @@ public class BenchmarkGeoIP {
         testGeoipCity(1000);
     }
 
-    private void testGeoipCountry(final int numlookups) {
+    @SuppressFBWarnings("NP_ALWAYS_NULL")
+    private void testGeoipCountry(final int numlookups)
+    {
 
         int i4 = 0;
         long t1 = System.currentTimeMillis();
@@ -90,7 +101,9 @@ public class BenchmarkGeoIP {
         System.out.println(numlookups + " lookups made in " + t3 + " seconds ");
     }
 
-    private void testGeoipRegion(final int numlookups) {
+    @SuppressFBWarnings("NP_ALWAYS_NULL")
+    private void testGeoipRegion(final int numlookups)
+    {
         int i4 = 0;
         long t1 = System.currentTimeMillis();
         for (int i2 = 0; i2 < numlookups; i2++) {
@@ -103,7 +116,9 @@ public class BenchmarkGeoIP {
         System.out.println(numlookups + " lookups made in " + t3 + " seconds ");
     }
 
-    private void testGeoipCity(final int numlookups) {
+    @SuppressFBWarnings("NP_ALWAYS_NULL")
+    private void testGeoipCity(final int numlookups)
+    {
         int i4 = 0;
         long t1 = System.currentTimeMillis();
         for (int i2 = 0; i2 < numlookups; i2++) {

@@ -5,13 +5,14 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 @Test(groups = "test")
-public class CountryLookupTest {
+public class CountryLookupTest
+{
 
     public static final String GEOIP_FILE = "src/main/resources/GeoIP.dat";
 
     public void testCountry() throws Exception
     {
-        LookupService cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_MEMORY_CACHE );
+        LookupService cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_MEMORY_CACHE);
 
         Country c1 = cl.getCountry("151.38.39.114");
         Country c2 = cl.getCountry("12.25.205.51");

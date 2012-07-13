@@ -5,13 +5,14 @@ import static org.testng.Assert.assertEquals;
 import org.testng.annotations.Test;
 
 @Test(groups = "require-purchase")
-public class NetspeedLookupTest {
+public class NetspeedLookupTest
+{
 
     public static final String GEOIP_FILE = "src/main/resources/GeoIPNetspeed.dat";
 
     public void testNetspeed() throws Exception
     {
-        LookupService cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_MEMORY_CACHE );
+        LookupService cl = new LookupService(GEOIP_FILE, LookupService.GEOIP_MEMORY_CACHE);
 
         int speed1 = cl.getID("151.38.39.114");
         int speed2 = cl.getID("12.25.205.51");
